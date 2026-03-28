@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Insight Estatístico</title>
+
+  <!-- Bootstrap CSS -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+    }
+
+    header {
+      background: #0a2540;
+      color: white;
+      padding: 20px;
+      text-align: center;
+    }
+
+    .hero {
+      background: #f4f6f8;
+      padding: 80px 20px;
+      text-align: center;
+    }
+
+    .diferenciais {
+      background: #eef3f7;
+    }
+
+    footer {
+      background: #0a2540;
+      color: white;
+      text-align: center;
+      padding: 20px;
+    }
+  </style>
+</head>
+
+<body>
+
+<!-- HEADER -->
+<header>
+  <h1>Insight Estatístico</h1>
+  <p>Consultoria em Análise de Dados</p>
+
+  <nav>
+    <a href="#sobre" class="text-white mx-2">Quem Somos</a>
+    <a href="#servicos" class="text-white mx-2">Serviços</a>
+    <a href="#diferenciais" class="text-white mx-2">Diferenciais</a>
+    <a href="#contato" class="text-white mx-2">Contato</a>
+  </nav>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <h2 class="mb-3">Transformando dados em decisões inteligentes</h2>
+    <p class="mb-4">
+      Especialistas em estatística aplicada para empresas, pesquisadores e startups.
+    </p>
+
+    <button class="btn btn-primary" onclick="scrollToContact()">
+      Fale Conosco
+    </button>
+
+    <br><br>
+
+    <a href="classificador-de-objetos.html" class="btn btn-success">
+      IA Imagens
+    </a>
+  </div>
+</section>
+
+<!-- SOBRE -->
+<section id="sobre" class="py-5">
+  <div class="container text-center">
+    <h2>Quem Somos</h2>
+    <p>
+      Somos uma empresa de consultoria estatística dedicada a transformar dados em insights estratégicos.
+      Atuamos com análise de dados, modelagem estatística e suporte à tomada de decisão baseada em evidências.
+    </p>
+  </div>
+</section>
+
+<!-- SERVIÇOS -->
+<section id="servicos" class="py-5">
+  <div class="container">
+    <h2 class="text-center mb-4">Serviços</h2>
+
+    <div class="row g-4">
+      <div class="col-md-3">
+        <div class="card h-100 shadow">
+          <div class="card-body">
+            <h5 class="card-title">📊 Análise de Dados</h5>
+            <p class="card-text">Exploração e interpretação de dados para gerar insights relevantes.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100 shadow">
+          <div class="card-body">
+            <h5 class="card-title">🔮 Modelagem Preditiva</h5>
+            <p class="card-text">Criação de modelos estatísticos para prever tendências e resultados.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100 shadow">
+          <div class="card-body">
+            <h5 class="card-title">🧪 Testes Estatísticos</h5>
+            <p class="card-text">Aplicação de testes de hipóteses com rigor científico.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-md-3">
+        <div class="card h-100 shadow">
+          <div class="card-body">
+            <h5 class="card-title">🎓 Treinamentos</h5>
+            <p class="card-text">Capacitação em R, Python, SPSS e análise de dados.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DIFERENCIAIS -->
+<section id="diferenciais" class="diferenciais py-5">
+  <div class="container text-center">
+    <h2>Diferenciais</h2>
+
+    <ul class="list-unstyled mt-4">
+      <li>✔ Atendimento personalizado</li>
+      <li>✔ Uso de ferramentas modernas</li>
+      <li>✔ Rigor científico</li>
+      <li>✔ Foco em resultados práticos</li>
+    </ul>
+  </div>
+</section>
+
+<!-- CONTATO -->
+<section id="contato" class="py-5">
+  <div class="container text-center">
+    <h2>Contato</h2>
+    <p>Email: contato@insightestatistico.com</p>
+    <p>Telefone: (18) 99999-9999</p>
+    <p>Endereço: Presidente Prudente - SP</p>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <p>&copy; 2026 Insight Estatístico - Todos os direitos reservados</p>
+</footer>
+
+<!-- JS -->
+<script>
+  function scrollToContact() {
+    document.getElementById('contato').scrollIntoView({
+      behavior: 'smooth'
+    });
+  }
+</script>
+
+</body>
+</html>

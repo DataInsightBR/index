@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Verificação de Imagem IA</title>
+
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0f19;
+      color: white;
+      text-align: center;
+      padding: 50px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+      background: #161b22;
+      padding: 30px;
+      border-radius: 10px;
+    }
+
+    input {
+      margin: 20px 0;
+      color: white;
+    }
+
+    button {
+      padding: 12px 25px;
+      border: none;
+      border-radius: 6px;
+      background: #4f8cff;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #3a6fd8;
+    }
+
+    img {
+      margin-top: 20px;
+      max-width: 100%;
+      border-radius: 10px;
+      display: none;
+    }
+
+    #resultado {
+      margin-top: 20px;
+      color: #9da7b3;
+      white-space: pre-line;
+      text-align: left;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="container">
+  <h2>Enviar Imagem para IA</h2>
+
+  <input type="file" id="imagem" accept="image/*">
+  <br>
+
+  <button onclick="enviarImagem()">Verificar</button>
+
+  <br>
+  <img id="preview">
+
+  <div id="resultado">Carregando modelo...</div>
+</div>
+
+<!-- Bibliotecas do Teachable Machine -->
+<script src="https://cdn.jsdelivr.net/npm/@tensorflow/tfjs@latest"></script>
+<script src="https://cdn.jsdelivr.net/npm/@teachablemachine/image@latest"></script>
+
+<script>
+  const URL = "https://teachablemachine.withgoogle.com/models/V68zV0L3v/";
+
+  let model;
+
+  async function carregarModelo() {
+    const modelURL = URL + "model.json";
+    const metadataURL = URL + "metadata.json";
+
+    model = await tmImage.load(modelURL, metadataURL);
+    document.getElementById("resultado").innerText = "Modelo carregado. Envie uma imagem.";
+  }
+
+  carregarModelo();
+
+  const inputImagem = document.getElementById('imagem');
+  const preview = document.getElementById('preview');
+
+  // Preview da imagem
+  inputImagem.addEventListener('change', function () {
+    const file = this.files[0];
+
+    if (file) {
+      preview.src = URL.createObjectURL(file);
+      preview.style.display = 'block';
+    }
+  });
+
+  async function enviarImagem() {
+    if (!model) {
+      alert("Modelo ainda está carregando...");
+      return;
+    }
+
+    if (!preview.src) {
+      alert("Selecione uma imagem primeiro!");
+      return;
+    }
+
+    const prediction = await model.predict(preview);
+
+    let resultado = "Resultado da IA:\n\n";
+
+    prediction.forEach(p => {
+      resultado += `${p.className}: ${(p.probability * 100).toFixed(2)}%\n`;
+    });
+
+    document.getElementById("resultado").innerText = resultado;
+  }
+</script>
+
+</body>
+</html>
